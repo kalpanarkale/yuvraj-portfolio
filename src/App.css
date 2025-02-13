@@ -1,42 +1,303 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+/* Custom background and text colors */
+:root {
+  --dark-navy: #111827;
+  --orange-accent: #FB923C;
+  --blue-accent: #60A5FA;
+  --green-accent: #4ADE80;
+  --white-text: #F9FAFB;
+}
+
+body {
+  background-color: #111111;
+  font-family: 'Inter', sans-serif;
+  color: var(--white-text);
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER STYLING */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(17, 24, 39); /* Slight transparency */
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.head-intro{
+  margin-top: 120px;
+}
+
+/* Logo / Name */
+.header-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Navigation Menu */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--white-text);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--orange-accent);
+}
+
+/* Menu Button */
+.menu-button {
+  display: none;
+  background: var(--orange-accent);
+  color: var(--dark-navy);
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-button:hover {
+  background: var(--blue-accent);
+}
+
+/* CTA Button */
+.cta-button {
+  background: var(--blue-accent);
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: var(--green-accent);
+}
+
+/* Hero Section */
+.hero {
+  margin-top: 100px; /* Offset header height */
   text-align: center;
+  padding: 80px 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.hero h1 {
+  font-size: 40px;
+  font-weight: 700;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.hero p {
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* Icons & Skills Styling */
+.skills-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.skill-badge {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.skill-orange {
+  background: var(--orange-accent);
+  box-shadow: 0 0 15px rgba(251, 146, 60, 0.5);
+}
+
+.skill-blue {
+  background: var(--blue-accent);
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.5);
+}
+
+.skill-green {
+  background: var(--green-accent);
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 15px 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .skills-container {
+    gap: 20px;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Footer.css */
+.footer {
+  background-color: #111111;
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+/* Colored Text */
+.green { color: #00ff00; }  /* ACTIVE */
+.pink { color: #ff007f; }  /* BEAUTIFUL */
+.yellow { color: #ffb300; }  /* PROJECTS */
+.red { color: #ff3b3b; }  /* IMPOSTER */
+.purple { color: #a855f7; }  /* PUSH */
+
+/* Social Media Icons */
+.icon {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  margin: 0 4px;
+}
+
+/* Emoji Styling */
+.emoji {
+  font-size: 1.5rem;
+}
+
+/* Floating Stickers */
+.done-sticker {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 80px;
+  transform: translateY(-50%) rotate(-10deg);
+}
+
+.feedback-sticker {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  width: 80px;
+  transform: translateY(-50%) rotate(10deg);
+}
+
+.avatar-sticker {
+  position: absolute;
+  bottom: 80px;
+  left: 5%;
+  width: 70px;
+}
+
+/* Job Availability Status */
+.status {
+  background: #000;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: green;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  margin-top: 2rem;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.email-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.email-link:hover {
+  color: #ffa726;
+}
+
+.gmail-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .done-sticker, .feedback-sticker, .avatar-sticker {
+    width: 60px;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .footer-bottom {
+    flex-direction: column;
+  }
 }
